@@ -8,7 +8,6 @@ import Auth from '@/pages/Auth';
 import CreatePost from '@/pages/CreatePost';
 import CargoList from '@/pages/CargoList';
 import RouteList from '@/pages/RouteList';
-import MapView from '@/pages/MapView';
 import Messages from '@/pages/Messages';
 import Profile from '@/pages/Profile';
 import MyPosts from '@/pages/MyPosts';
