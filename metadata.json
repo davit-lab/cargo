@@ -1,0 +1,5 @@
+{
+  "name": "CargoConnect Georgia",
+  "description": "A logistics platform for cargo transportation and heavy equipment services in Georgia. Connects shippers with drivers and equipment owners, featuring real-time route planning, messaging, and subscription-based posting.",
+  "requestFramePermissions": ["geolocation"]
+}

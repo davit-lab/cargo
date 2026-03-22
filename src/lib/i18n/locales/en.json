@@ -1,0 +1,76 @@
+{
+  "common": {
+    "search": "Search",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "home": "Home",
+    "catalog": "Catalog",
+    "about": "About",
+    "contact": "Contact",
+    "perDay": "per day",
+    "viewDetails": "Details",
+    "book": "Book",
+    "all": "All",
+    "loading": "Loading...",
+    "noResults": "No results found",
+    "services": "Services",
+    "cargo": "Cargo",
+    "routes": "Routes",
+    "heavyEquipment": "Heavy Equipment",
+    "map": "Map",
+    "packets": "Packets",
+    "createPost": "Post",
+    "chats": "Chats",
+    "profile": "Profile",
+    "billing": "Billing",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "title": "Rent Equipment Easily",
+    "subtitle": "Georgia's largest equipment rental platform",
+    "searchPlaceholder": "What are you looking for?",
+    "locationPlaceholder": "Location",
+    "categoryPlaceholder": "Category"
+  },
+  "categories": {
+    "title": "Categories",
+    "construction": "Construction",
+    "agricultural": "Agricultural",
+    "transport": "Transport",
+    "medical": "Medical",
+    "industrial": "Industrial",
+    "events": "Events",
+    "tools": "Tools",
+    "other": "Other"
+  },
+  "popular": {
+    "title": "Popular Listings",
+    "viewAll": "View All"
+  },
+  "footer": {
+    "description": "Georgia's largest equipment rental platform",
+    "quickLinks": "Quick Links",
+    "support": "Support",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "faq": "FAQ",
+    "rights": "All rights reserved"
+  },
+  "auth": {
+    "loginTitle": "Login",
+    "registerTitle": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "phone": "Phone",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "selectRole": "Select your role",
+    "renter": "Renter",
+    "owner": "Owner"
+  }
+}

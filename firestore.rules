@@ -1,0 +1,95 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    function isAdmin() {
+      return isAuthenticated() && 
+        ((request.auth.token.email == "academy@codezero.ge" && request.auth.token.email_verified == true) ||
+         (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'));
+    }
+    function isValidString(val, maxLen) {
+      return val is string && val.size() <= maxLen;
+    }
+    function isValidUser(data) {
+      return data.uid is string && data.email is string &&
+             (!('role' in data) || data.role in ['shipper', 'driver', 'admin', 'client']) &&
+             (!('subscriptionStatus' in data) || data.subscriptionStatus in ['active', 'inactive']) &&
+             (!('displayName' in data) || isValidString(data.displayName, 100)) &&
+             (!('phone' in data) || isValidString(data.phone, 20));
+    }
+    function isValidPost(data) {
+      return data.userId is string && data.type in ['cargo', 'route'] &&
+             data.origin is map && data.destination is map &&
+             data.status in ['active', 'completed'] &&
+             (!('description' in data) || isValidString(data.description, 2000)) &&
+             (!('contactPhone' in data) || isValidString(data.contactPhone, 20));
+    }
+    function isValidMessage(data) {
+      return data.chatId is string && data.senderId is string && 
+             isValidString(data.text, 5000);
+    }
+    function isValidEquipment(data) {
+      return isValidString(data.title, 200) && (data.price is string || data.price is number) && data.ownerId is string &&
+             (!('description' in data) || isValidString(data.description, 2000));
+    }
+    function isValidBooking(data) {
+      return data.equipmentId is string && data.userId is string && 
+             data.status in ['pending', 'confirmed', 'cancelled'];
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId) && isValidUser(request.resource.data);
+      allow update: if (isOwner(userId) || isAdmin()) && isValidUser(request.resource.data);
+    }
+
+    match /posts/{postId} {
+      allow read: if true; // Posts are public
+      allow create: if isAuthenticated() && isValidPost(request.resource.data) && request.resource.data.userId == request.auth.uid;
+      allow update: if (isAuthenticated() && resource.data.userId == request.auth.uid && isValidPost(request.resource.data)) || isAdmin();
+      allow delete: if (isAuthenticated() && resource.data.userId == request.auth.uid) || isAdmin();
+    }
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /equipment/{equipmentId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && isValidEquipment(request.resource.data) && (request.resource.data.ownerId == request.auth.uid || isAdmin());
+      allow update: if (isAuthenticated() && resource.data.ownerId == request.auth.uid && isValidEquipment(request.resource.data)) || isAdmin();
+      allow delete: if (isAuthenticated() && resource.data.ownerId == request.auth.uid) || isAdmin();
+    }
+
+    match /bookings/{bookingId} {
+      allow read: if isAuthenticated() && (request.auth.uid == resource.data.userId || request.auth.uid == resource.data.ownerId || isAdmin());
+      allow create: if isAuthenticated() && isValidBooking(request.resource.data) && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (request.auth.uid == resource.data.userId || request.auth.uid == resource.data.ownerId || isAdmin());
+    }
+
+    match /chats/{chatId} {
+      allow read: if isAuthenticated() && request.auth.uid in resource.data.participants;
+      allow create: if isAuthenticated() && request.auth.uid in request.resource.data.participants;
+      allow update: if isAuthenticated() && request.auth.uid in resource.data.participants;
+      
+      match /messages/{messageId} {
+        allow read: if isAuthenticated() && request.auth.uid in get(/databases/$(database)/documents/chats/$(chatId)).data.participants;
+        allow create: if isAuthenticated() && request.auth.uid in get(/databases/$(database)/documents/chats/$(chatId)).data.participants && isValidMessage(request.resource.data);
+      }
+    }
+  }
+}

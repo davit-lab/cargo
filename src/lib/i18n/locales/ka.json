@@ -1,0 +1,76 @@
+{
+  "common": {
+    "search": "ძებნა",
+    "login": "შესვლა",
+    "register": "რეგისტრაცია",
+    "logout": "გასვლა",
+    "home": "მთავარი",
+    "catalog": "კატალოგი",
+    "about": "ჩვენს შესახებ",
+    "contact": "კონტაქტი",
+    "perDay": "დღეში",
+    "viewDetails": "დეტალები",
+    "book": "დაჯავშნა",
+    "all": "ყველა",
+    "loading": "იტვირთება...",
+    "noResults": "შედეგები არ მოიძებნა",
+    "services": "სერვისები",
+    "cargo": "ტვირთები",
+    "routes": "რეისები",
+    "heavyEquipment": "სპეცტექნიკა",
+    "map": "რუკა",
+    "packets": "პაკეტები",
+    "createPost": "დამატება",
+    "chats": "ჩატები",
+    "profile": "პროფილი",
+    "billing": "ბარათები",
+    "dashboard": "მართვის პანელი"
+  },
+  "hero": {
+    "title": "იპოვე სერვისი მარტივად",
+    "subtitle": "საქართველოს უდიდესი მომსახურების სერვისების პლატფორმა",
+    "searchPlaceholder": "რას ეძებთ?",
+    "locationPlaceholder": "ლოკაცია",
+    "categoryPlaceholder": "კატეგორია"
+  },
+  "categories": {
+    "title": "კატეგორიები",
+    "construction": "სამშენებლო",
+    "agricultural": "სასოფლო-სამეურნეო",
+    "transport": "სატრანსპორტო",
+    "medical": "სამედიცინო",
+    "industrial": "სამრეწველო",
+    "events": "ღონისძიებები",
+    "tools": "ხელსაწყოები",
+    "other": "სხვა"
+  },
+  "popular": {
+    "title": "პოპულარული სერვისები",
+    "viewAll": "ყველას ნახვა"
+  },
+  "footer": {
+    "description": "საქართველოს უდიდესი მომსახურების სერვისების პლატფორმა",
+    "quickLinks": "სწრაფი ბმულები",
+    "support": "მხარდაჭერა",
+    "legal": "იურიდიული",
+    "privacy": "კონფიდენციალურობა",
+    "terms": "წესები და პირობები",
+    "faq": "ხშირად დასმული კითხვები",
+    "rights": "ყველა უფლება დაცულია"
+  },
+  "auth": {
+    "loginTitle": "შესვლა",
+    "registerTitle": "რეგისტრაცია",
+    "email": "ელფოსტა",
+    "password": "პაროლი",
+    "confirmPassword": "პაროლის დადასტურება",
+    "fullName": "სახელი და გვარი",
+    "phone": "ტელეფონი",
+    "forgotPassword": "დაგავიწყდა პაროლი?",
+    "noAccount": "არ გაქვთ ანგარიში?",
+    "hasAccount": "უკვე გაქვთ ანგარიში?",
+    "selectRole": "აირჩიეთ როლი",
+    "renter": "მომხმარებელი",
+    "owner": "მომწოდებელი"
+  }
+}

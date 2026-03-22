@@ -1,0 +1,65 @@
+{
+  "common": {
+    "search": "Поиск",
+    "login": "Войти",
+    "register": "Регистрация",
+    "logout": "Выйти",
+    "home": "Главная",
+    "catalog": "Каталог",
+    "about": "О нас",
+    "contact": "Контакт",
+    "perDay": "в день",
+    "viewDetails": "Подробнее",
+    "book": "Забронировать",
+    "all": "Все",
+    "loading": "Загрузка...",
+    "noResults": "Результатов не найдено"
+  },
+  "hero": {
+    "title": "Арендуйте технику легко",
+    "subtitle": "Крупнейшая платформа аренды техники в Грузии",
+    "searchPlaceholder": "Что вы ищете?",
+    "locationPlaceholder": "Локация",
+    "categoryPlaceholder": "Категория"
+  },
+  "categories": {
+    "title": "Категории",
+    "construction": "Строительная",
+    "agricultural": "Сельскохозяйственная",
+    "transport": "Транспортная",
+    "medical": "Медицинская",
+    "industrial": "Промышленная",
+    "events": "Мероприятия",
+    "tools": "Инструменты",
+    "other": "Другое"
+  },
+  "popular": {
+    "title": "Популярные объявления",
+    "viewAll": "Смотреть все"
+  },
+  "footer": {
+    "description": "Крупнейшая платформа аренды техники в Грузии",
+    "quickLinks": "Быстрые ссылки",
+    "support": "Поддержка",
+    "legal": "Юридическая информация",
+    "privacy": "Конфиденциальность",
+    "terms": "Условия использования",
+    "faq": "Часто задаваемые вопросы",
+    "rights": "Все права защищены"
+  },
+  "auth": {
+    "loginTitle": "Вход",
+    "registerTitle": "Регистрация",
+    "email": "Эл. почта",
+    "password": "Пароль",
+    "confirmPassword": "Подтвердите пароль",
+    "fullName": "Имя и фамилия",
+    "phone": "Телефон",
+    "forgotPassword": "Забыли пароль?",
+    "noAccount": "Нет аккаунта?",
+    "hasAccount": "Уже есть аккаунт?",
+    "selectRole": "Выберите роль",
+    "renter": "Арендатор",
+    "owner": "Владелец"
+  }
+}
