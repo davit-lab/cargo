@@ -36,30 +36,29 @@ const App = () => {
       <Router>
         <Layout>
           <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={!user ? <Auth /> : <Navigate to="/" />} />
-          <Route path="/register" element={!user ? <Auth /> : <Navigate to="/" />} />
-          <Route path="/cargo" element={<CargoList />} />
-          <Route path="/routes" element={<RouteList />} />
-          <Route path="/heavy-equipment" element={<HeavyEquipment />} />
-          <Route path="/equipment/:id" element={<EquipmentDetails />} />
-          <Route path="/map" element={<MapView />} />
-          <Route path="/packets" element={<Packets />} />
-          
-          {/* Protected Routes */}
-          <Route path="/create-post" element={user && profile?.role === 'owner' ? <CreatePost /> : <Navigate to="/login" />} />
-          <Route path="/messages" element={user ? <Messages /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
-          <Route path="/my-posts" element={user ? <MyPosts /> : <Navigate to="/login" />} />
-          <Route path="/billing" element={user ? <Billing /> : <Navigate to="/login" />} />
-          
-          {/* Owner Routes */}
-          <Route path="/owner/*" element={user && profile?.role === 'owner' ? <OwnerDashboard /> : <Navigate to="/" />} />
-          
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </Layout>
-    </Router>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={!user ? <Auth /> : <Navigate to="/" />} />
+            <Route path="/register" element={!user ? <Auth /> : <Navigate to="/" />} />
+            <Route path="/cargo" element={<CargoList />} />
+            <Route path="/routes" element={<RouteList />} />
+            <Route path="/heavy-equipment" element={<HeavyEquipment />} />
+            <Route path="/equipment/:id" element={<EquipmentDetails />} />
+            <Route path="/packets" element={<Packets />} />
+
+            {/* Protected Routes */}
+            <Route path="/create-post" element={user && profile?.role === 'owner' ? <CreatePost /> : <Navigate to="/login" />} />
+            <Route path="/messages" element={user ? <Messages /> : <Navigate to="/login" />} />
+            <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
+            <Route path="/my-posts" element={user ? <MyPosts /> : <Navigate to="/login" />} />
+            <Route path="/billing" element={user ? <Billing /> : <Navigate to="/login" />} />
+
+            {/* Owner Routes */}
+            <Route path="/owner/*" element={user && profile?.role === 'owner' ? <OwnerDashboard /> : <Navigate to="/" />} />
+
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Layout>
+      </Router>
     </ErrorBoundary>
   );
 };
